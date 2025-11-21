@@ -3,14 +3,14 @@ package org.example;
 public class Wallet {
     private final String color;
     private final int size;
-    private double vola;
+    private double value;
     private boolean isOpen;
     private boolean isLost;
 
     public Wallet(String color, int size) {
         this.color = color;
         this.size = size;
-        this.vola = 0;
+        this.value = 0;
         this.isOpen = false;
         this.isLost = false;
     }
@@ -29,7 +29,7 @@ public class Wallet {
 
     public void addVola(double volaToAdd) {
         if (!isLost) {
-            vola += volaToAdd;
+            value += volaToAdd;
             System.out.println(volaToAdd + " added to wallet");
         } else {
             System.out.println("Cannot add money. Wallet is lost!");
@@ -37,7 +37,7 @@ public class Wallet {
     }
 
     public double getVola() {
-        return vola;
+        return value;
     }
 
     public void open() {
@@ -60,7 +60,7 @@ public class Wallet {
 
     public double checkVola() {
         if (!isLost && isOpen) {
-            return vola;
+            return value;
         } else if (isLost) {
             System.out.println("Cannot check money. Wallet is lost!");
             return 0;
